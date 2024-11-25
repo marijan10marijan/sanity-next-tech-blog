@@ -30,6 +30,7 @@ async function getBlogData(slug) {
 const SingleBlogPage = async ({ params }) => {
   const { slug } = params;
   const blog = await getBlogData(slug);
+  const imageUrl = blog.image ? urlFor(blog.image).url() : null;
 
   if (!blog) {
     return <div>Blog not found</div>;
@@ -39,14 +40,16 @@ const SingleBlogPage = async ({ params }) => {
     <div className="w-full">
       <h2 className="text-3xl font-semibold mb-10">{blog.title}</h2>
       <div className="max-w-[520px] w-full  h-40 sm:h-52 relative my-6">
-        <Image
-          className="w-full h-full absolute top-0 left-0 object-cover aspect-video"
-          src={urlFor(blog.image).url()}
-          alt={blog.title}
-          sizes="100%"
-          fill={true}
-          priority={true}
-        />
+        {imageUrl ? (
+          <Image
+            className="w-full h-full absolute top-0 left-0 object-cover aspect-video"
+            src={imageUrl}
+            alt={blog.title}
+            sizes="100%"
+            fill={true}
+            priority={true}
+          />
+        ) : null}
       </div>
       <PortableText value={blog.content} components={customComponents} />
       <div className="my-4 sm:py-6">Ratings: {renderStars(blog.rating)}</div>
