@@ -23,7 +23,7 @@ const BestRated = ({ data }) => {
             blog.rating === 5 && (
               <div
                 key={blog.title}
-                className="border border-gray-200 rounded-md h-full relative  snap-start px-2 hover:border-gray-400 transition duration-150"
+                className="border border-gray-200 rounded-md h-full relative  snap-start px-2 hover:border-gray-400 transition duration-150 hover:dark:border-white"
               >
                 <BlogCard blog={blog} isPopularBlog={true} />
               </div>
