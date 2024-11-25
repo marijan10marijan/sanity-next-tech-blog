@@ -1,5 +1,6 @@
 import React from "react";
 import BlogCard from "./blog-card";
+import Link from "next/link";
 
 const MostPopularBlogs = ({ data }) => {
   if (!data || data.length === 0) {
@@ -16,12 +17,13 @@ const MostPopularBlogs = ({ data }) => {
         {data.map(
           (blog) =>
             blog.isMostPopular && (
-              <div
+              <Link
+                href={`/blog/${blog.slug}`}
                 key={blog.title}
                 className="border border-gray-300 rounded-md h-full relative  snap-start px-2   "
               >
                 <BlogCard blog={blog} isPopularBlog={true} />
-              </div>
+              </Link>
             )
         )}
       </div>
