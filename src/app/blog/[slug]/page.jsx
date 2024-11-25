@@ -4,6 +4,7 @@ import { PortableText } from "@portabletext/react";
 import customComponents from "@/components/customComponent";
 import Image from "next/image";
 import { renderStars } from "@/components/ratings";
+import Link from "next/link";
 
 async function getBlogData(slug) {
   const query = `
@@ -64,6 +65,12 @@ const SingleBlogPage = async ({ params }) => {
           </div>
         ) : null}
       </div>
+      <Link
+        className="mt-6 px-4 py-2 bg-primary text-white rounded-md hover:bg-gradient-to-tr hover:from-indigo-700 hover:to-purple-800 w-fit transition duration-200"
+        href="/"
+      >
+        Back to all blogs
+      </Link>
     </div>
   );
 };
