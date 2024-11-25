@@ -50,7 +50,7 @@ const SingleBlogPage = async ({ params }) => {
       </div>
       <PortableText value={blog.content} components={customComponents} />
       <div className="my-4 sm:py-6">Ratings: {renderStars(blog.rating)}</div>
-      <div className="mt-10 flex items-center justify-between flex-wrap gap-2">
+      <div className="mt-6 mb-10 flex items-center justify-between flex-wrap gap-2">
         <p className="text-sm font-semibold text-gray-800 dark:text-gray-200 ">
           {new Intl.DateTimeFormat("en-US", {
             dateStyle: "medium",
