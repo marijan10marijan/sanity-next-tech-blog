@@ -39,7 +39,9 @@ const SingleBlogPage = async ({ params }) => {
   return (
     <div className="w-full">
       <h2 className="text-3xl font-semibold mb-10">{blog.title}</h2>
-      <div className="max-w-[520px] w-full  h-40 sm:h-52 relative my-6">
+      <div
+        className={`${imageUrl ? "max-w-[520px] w-full  h-40 sm:h-52 relative my-6" : ""}`}
+      >
         {imageUrl ? (
           <Image
             className="w-full h-full absolute top-0 left-0 object-cover aspect-video"
