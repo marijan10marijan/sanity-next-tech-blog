@@ -14,14 +14,19 @@ const BlogCard = ({ blog, isPopularBlog }) => {
           <div
             className={`${isPopularBlog ? "h-28 sm:h-40 relative overflow-hidden " : "flex-1 sm:flex-auto w-full h-full sm:h-40 relative overflow-hidden"}`}
           >
-            <Image
-              className="w-full absolute top-0 left-0 object-cover aspect-video"
-              src={urlFor(blog.image).url()}
-              alt={blog.title}
-              sizes="100%"
-              fill={true}
-              priority={true}
-            />
+            {blog.image && (
+              <Image
+                className="w-full absolute top-0 left-0 object-cover aspect-video"
+                src={urlFor(blog.image).url()}
+                alt={blog.title}
+                sizes="100%"
+                fill={true}
+                priority={true}
+              />
+            )}
+            {!blog.image && (
+              <div className="w-full absolute top-0 left-0 object-cover aspect-video bg-slate-700"></div>
+            )}
           </div>
           <div className="pt-4 pb-0 px-2  flex flex-col gap-4 sm:flex-auto md:min-h-[180px]">
             <h2 className="text-xl font-bold font-serif leading-6 line-clamp-2">
