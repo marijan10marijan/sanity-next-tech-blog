@@ -20,7 +20,7 @@ const MostPopularBlogs = ({ data }) => {
               <Link
                 href={`/blog/${blog.slug}`}
                 key={blog.title}
-                className="border border-gray-300 rounded-md h-full relative  snap-start pb-2"
+                className="border border-gray-300 rounded-md h-full relative  snap-start pb-2  overflow-hidden"
               >
                 <BlogCard blog={blog} isPopularBlog={true} />
               </Link>
