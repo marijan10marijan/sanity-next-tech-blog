@@ -7,7 +7,7 @@ const BlogCard = ({ blog, isPopularBlog }) => {
   return (
     <Link
       href={`/blog/${blog.slug}`}
-      className={`${isPopularBlog ? "flex-col gap-4 pt-0 px-2  sm:items-start" : "flex sm:flex-col gap-2 overflow-hidden items-center sm:items-start shadow-sm shadow-gray-600 rounded-md"}`}
+      className={`${isPopularBlog ? "flex-col gap-4 pt-0 px-2  sm:items-start" : "flex sm:flex-col gap-2 overflow-hidden items-center sm:items-start shadow-sm hover:shadow-md transition duration-150 shadow-gray-600 rounded-md"}`}
     >
       <div
         className={`${isPopularBlog ? "h-28 sm:h-40 relative overflow-hidden " : "flex-1 sm:flex-auto w-full h-full sm:h-40 relative overflow-hidden"}`}

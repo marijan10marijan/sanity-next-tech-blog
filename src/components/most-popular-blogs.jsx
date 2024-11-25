@@ -18,7 +18,7 @@ const MostPopularBlogs = ({ data }) => {
             blog.isMostPopular && (
               <div
                 key={blog.title}
-                className="border border-gray-200 rounded-md h-full relative  snap-start px-2 "
+                className="border border-gray-200 rounded-md h-full relative  snap-start px-2 hover:border-gray-400 transition duration-150"
               >
                 <BlogCard blog={blog} isPopularBlog={true} />
               </div>
