@@ -4,6 +4,8 @@ import React from "react";
 import { urlFor } from "@/lib/sanity";
 
 const BlogCard = ({ blog, isPopularBlog }) => {
+  const imageUrl = blog.image ? urlFor(blog.image).url() : null;
+
   return (
     <>
       {isPopularBlog ? (
@@ -11,21 +13,18 @@ const BlogCard = ({ blog, isPopularBlog }) => {
           href={`/blog/${blog.slug}`}
           className="flex-col gap-4 pt-0  sm:items-start"
         >
-          <div
-            className={`${isPopularBlog ? "h-28 sm:h-40 relative overflow-hidden " : "flex-1 sm:flex-auto w-full h-full sm:h-40 relative overflow-hidden"}`}
-          >
-            {blog.image && (
+          <div className="h-28 sm:h-40 relative overflow-hidden ">
+            {imageUrl ? (
               <Image
                 className="w-full absolute top-0 left-0 object-cover aspect-video"
-                src={urlFor(blog.image).url()}
+                src={imageUrl}
                 alt={blog.title}
                 sizes="100%"
                 fill={true}
                 priority={true}
               />
-            )}
-            {!blog.image && (
-              <div className="w-full absolute top-0 left-0 object-cover aspect-video bg-slate-700"></div>
+            ) : (
+              <div className="w-full h-full bg-gray-600 flex absolute top-0 left-0 items-center justify-center"></div>
             )}
           </div>
           <div className="pt-4 pb-0 px-2  flex flex-col gap-4 sm:flex-auto md:min-h-[180px]">
@@ -49,17 +48,19 @@ const BlogCard = ({ blog, isPopularBlog }) => {
           href={`/blog/${blog.slug}`}
           className="flex sm:flex-col gap-2 overflow-hidden items-center sm:items-start shadow-sm  shadow-gray-600 rounded-md"
         >
-          <div
-            className={`${isPopularBlog ? "h-28 sm:h-40 relative overflow-hidden " : "flex-1 sm:flex-auto w-full h-full sm:h-40 relative overflow-hidden"}`}
-          >
-            <Image
-              className="w-full absolute top-0 left-0 object-cover aspect-video"
-              src={urlFor(blog.image).url()}
-              alt={blog.title}
-              sizes="100%"
-              fill={true}
-              priority={true}
-            />
+          <div className="flex-1 sm:flex-auto w-full h-full sm:h-40 relative overflow-hidden">
+            {imageUrl ? (
+              <Image
+                className="w-full absolute top-0 left-0 object-cover aspect-video"
+                src={imageUrl}
+                alt={blog.title}
+                sizes="100%"
+                fill={true}
+                priority={true}
+              />
+            ) : (
+              <div className="w-full h-full bg-gray-600 flex absolute top-0 left-0 items-center justify-center"></div>
+            )}
           </div>
           <div className="py-4 px-2  flex flex-col gap-4 flex-1 sm:flex-auto justify-between md:min-h-[200px]">
             <h2 className="text-xl font-bold font-serif leading-6 line-clamp-2">
