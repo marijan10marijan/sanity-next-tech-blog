@@ -12,7 +12,7 @@ const Footer = () => {
           <li>Privacy & Cookie Setting</li>
         </ul>
       </div>
-      <p className="my-4 text-foreground text-sm font-semibold">
+      <p className="mt-4 mb-4 text-foreground text-sm font-semibold">
         © {new Date().getFullYear()} Tech daily. All rights reserved
       </p>
     </footer>
