@@ -1,6 +1,7 @@
 import React from "react";
 import BlogCard from "./blog-card";
 import { Star } from "lucide-react";
+import Link from "next/link";
 
 const BestRated = ({ data }) => {
   if (!data || data.length === 0) {
@@ -21,12 +22,13 @@ const BestRated = ({ data }) => {
         {data.reverse().map(
           (blog) =>
             blog.rating === 5 && (
-              <div
+              <Link
+                href={`/blog/${blog.slug}`}
                 key={blog.title}
                 className="border border-gray-300 rounded-md h-full relative  snap-start px-2  "
               >
                 <BlogCard blog={blog} isPopularBlog={true} />
-              </div>
+              </Link>
             )
         )}
       </div>
